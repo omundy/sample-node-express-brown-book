@@ -4,7 +4,7 @@
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
 // custom modules
-const fortune = require ( './lib/fortune' );
+const handlers = require('./lib/handlers');
 // create express app
 const app = express();
 // set port either from env file or default
@@ -21,32 +21,15 @@ app.set('view engine', 'handlebars');
 app.use(express.static(__dirname + '/public'));
 
 
-
-
-
 // add routes (before error middleware)
-// - GET -> the HTTP verb
-// - '/' => the path
-app.get('/', (req, res) => res.render('home'));
-app.get('/about', (req, res) => {
-	res.render('about', {
-		fortune: fortune.getFortune()
-	});
-});
+// - GET (HTTP verb) and  '/' (path)
+app.get('/', handlers.home);
+app.get('/about', handlers.about);
 
 
-
-// add middleware - custom 404
-app.use((req, res) => {
-	res.status(404);
-	res.render('404');
-});
-// add middleware - custom 500
-app.use((err, req, res, next) => {
-	console.error(err.message);
-	res.status(500);
-	res.render('500');
-});
+// add middleware - custom 404, 500
+app.use(handlers.notFound);
+app.use(handlers.serverError);
 
 // start server and listen on <port>
 app.listen(port, () => console.log(
