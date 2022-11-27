@@ -1,4 +1,3 @@
-'use strict';
 
 
 // custom modules

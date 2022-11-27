@@ -1,10 +1,8 @@
-'use strict';
-
 // import packages
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
 // custom modules
-const handlers = require('./lib/handlers');
+const handlers = require('./app/handlers');
 // create express app
 const app = express();
 // set port either from env file or default

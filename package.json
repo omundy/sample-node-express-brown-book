@@ -1,18 +1,20 @@
 {
-  "name": "sample-node-express-site",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "express-handlebars": "^5.2.0"
-  },
-  "devDependencies": {
-    "jest": "^26.6.3"
-  }
+	"name": "sample-node-express-site",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node app.js",
+		"start-dev": "nodemon --ext '*' --trace-warnings app.js",
+		"test": "jest"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.17.1",
+		"express-handlebars": "^5.2.0"
+	},
+	"devDependencies": {
+		"jest": "^26.6.3"
+	}
 }
