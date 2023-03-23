@@ -1,7 +1,7 @@
 
 
 // custom modules
-const fortune = require('./app/fortune');
+const fortune = require('./fortune');
 
 exports.home = (req,res) => res.render('home');
 exports.about = (req,res) =>
